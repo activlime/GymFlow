@@ -1,6 +1,10 @@
 %h1= @program.title
 %p= @program.description
+%pin
+  Submitted by
+  = @program.user.email
 
+%br
 = link_to "Back", root_path
 = link_to "Edit", edit_program_path
 = link_to "Delete", program_path, method: :delete, data: { confirm: "Are you sure?"}

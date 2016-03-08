@@ -10,11 +10,11 @@ class ProgramsController < ApplicationController
   end
 
   def new
-    @program = Program.new
+    @program = current_user.programs.build
   end
 
   def create
-    @program = Program.new(program_params)
+    @program = current_user.programs.build(program_params)
 
     if @program.save
       redirect_to @program, notice: "Successfully created new Program"
