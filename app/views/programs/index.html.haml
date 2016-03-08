@@ -1,4 +1,12 @@
-= link_to "New Program", new_program_path
+- if user_signed_in?
+  = link_to "New Program", new_program_path
 
-- @programs.each do |program|
-  %h2= link_to program.title, program
+  %br
+  #programs.transitions-enabled
+    - @programs.each do |program|
+      .box.panel.panel-default
+        = link_to image_tag("redbarbell.jpg", :class => "my_class", size: "200x200"), program
+        .panel-body
+          %h2= link_to program.title, program
+- else
+  %h1= "Welcome to Gym FLow"

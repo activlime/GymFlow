@@ -1,10 +1,19 @@
-%h1= @program.title
-%p= @program.description
-%pin
-  Submitted by
-  = @program.user.email
+#program_show.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default
+      .panel-heading.program_image
+        =image_tag  "redbarbell.jpg", :class => "my_class", size: "200x200"
+      .panel-body
+        %h1= @program.title
+        %p= @program.description
 
-%br
-= link_to "Back", root_path
-= link_to "Edit", edit_program_path
-= link_to "Delete", program_path, method: :delete, data: { confirm: "Are you sure?"}
+      .panel-footer
+        .row
+          .col-md-6
+            %p
+            Submitted by
+            = @program.user.email
+          .col-md-6
+            .btn-group.pull-right
+              = link_to "Edit", edit_program_path, class: "btn btn-default"
+              = link_to "Delete", program_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default"
