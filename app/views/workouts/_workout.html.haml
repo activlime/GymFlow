@@ -1,0 +1,6 @@
+#programs.transitions-enabled
+  - @workouts.each do |workout|
+    .box.panel.panel-default
+      = link_to image_tag("redbarbell.jpg", :class => "my_class", size: "200x200"), program_workout_path(@program, workout)
+      .panel-body
+        %h2= link_to workout.name, program_workout_path(@program, workout)

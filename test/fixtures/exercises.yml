@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  sets: 1
-  reps: 1
+  name: MyString
+  workout_id: 
 
 two:
-  title: MyString
-  sets: 1
-  reps: 1
+  name: MyString
+  workout_id: 

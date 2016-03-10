@@ -6,7 +6,7 @@ class ProgramsController < ApplicationController
   end
 
   def show
-
+    @workouts = Workout.where(params[@program.id])
   end
 
   def new
@@ -17,7 +17,7 @@ class ProgramsController < ApplicationController
     @program = current_user.programs.build(program_params)
 
     if @program.save
-      redirect_to @program, notice: "Successfully created new Program"
+      redirect_to new_program_workout_path(@program)
     else
       render 'new'
     end

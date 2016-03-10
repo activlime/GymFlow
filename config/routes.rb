@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :programs
+  resources :programs do
+    resources :workouts
+  end
   resources :exercises
   resources :exercise_sets
 

@@ -1,11 +1,10 @@
-#program_show.row
+#workout_show.row
   .col-md-8.col-md-offset-2
     .panel.panel-default
       .panel-heading.program_image
         =image_tag  "redbarbell.jpg", :class => "my_class", size: "200x200"
       .panel-body
-        %h1= @program.title
-        %p= @program.description
+        %h1= @workout.name
 
       .panel-footer
         .row
@@ -17,11 +16,3 @@
             .btn-group.pull-right
               = link_to "Edit", edit_program_path, class: "btn btn-default"
               = link_to "Delete", program_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default"
-
-#workouts_show
-  .panel.panel-default
-    .panel.panel-title
-      %h4 Workouts
-  = render "workouts/workout"
-  .btn-group.pull-right
-    = link_to "Add Workout", new_program_workout_path(@program), class: "btn btn-default"

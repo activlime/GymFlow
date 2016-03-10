@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  reps: 1
+  name: MyString
+  program_id: 
 
 two:
-  reps: 1
+  name: MyString
+  program_id: 
