@@ -1,12 +1,12 @@
 class ProgramsController < ApplicationController
   before_action :find_program, only: [:show, :edit, :update,:destroy]
+  before_action :find_workouts, only: [:show, :edit, :update,:destroy]
 
   def index
     @programs = Program.all
   end
 
   def show
-    @workouts = Workout.where(params[@program.id])
   end
 
   def new
@@ -33,6 +33,7 @@ class ProgramsController < ApplicationController
 
   def destroy
     @program.destroy
+    @workouts.destroy_all
     redirect_to root_path
   end
 
@@ -44,5 +45,9 @@ class ProgramsController < ApplicationController
 
   def find_program
     @program = Program.find(params[:id])
+  end
+
+  def find_workouts
+    @workouts = @program.workouts(params[:program_id])
   end
 end

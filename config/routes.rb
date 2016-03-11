@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :programs do
-    resources :workouts
+    resources :workouts do
+      resources :exercises
+    end
   end
-  resources :exercises
-  resources :exercise_sets
+
 
   root "programs#index"
 

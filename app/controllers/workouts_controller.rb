@@ -15,6 +15,7 @@ class WorkoutsController < ApplicationController
   end
 
   def show
+    @exercises = Exercise.where(params[@workout.id])
   end
 
   private
