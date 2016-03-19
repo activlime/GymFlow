@@ -1,3 +1,6 @@
-#list-group
+%u1{clsss:"list-group"}
   - @exercises.each do |exercise|
-    %button{:type => "button", :class => 'list-group-item'} exercise.name
+    %button{:class => "list-group-item"}
+      =exercise.name
+      %span{:class => "badge"}="hello"
+

@@ -3,7 +3,14 @@ class ExercisesController < ApplicationController
   before_action :find_exercise, only: [:show, :edit, :update,:destroy]
 
   def show
+  end
 
+  def new
+    @exercise = Exercise.new
+  end
+
+  def create
+    @exercise = Exercise.new
   end
 
   private
@@ -16,6 +23,6 @@ class ExercisesController < ApplicationController
   end
 
   def find_exercise
-    @program = Exercise.find(params[:id])
+    @exercise = Exercise.find(params[:id])
   end
 end

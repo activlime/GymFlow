@@ -1,6 +1,7 @@
 class ProgramsController < ApplicationController
   before_action :find_program, only: [:show, :edit, :update,:destroy]
   before_action :find_workouts, only: [:show, :edit, :update,:destroy]
+  before_action :find_exercises, only: [:show, :edit, :update,:destroy]
 
   def index
     @programs = Program.all
@@ -32,8 +33,10 @@ class ProgramsController < ApplicationController
   end
 
   def destroy
-    @program.destroy
+    @exercises.destroy_all
     @workouts.destroy_all
+    @program.destroy
+
     redirect_to root_path
   end
 
@@ -48,6 +51,13 @@ class ProgramsController < ApplicationController
   end
 
   def find_workouts
-    @workouts = @program.workouts(params[:program_id])
+    @workouts = Workout.where(params[:program_id])
+  end
+
+  def find_exercises
+    @exercises = Array.new
+    for workout in @workouts
+      @exercises += workout.exercises
+    end
   end
 end

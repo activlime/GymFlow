@@ -22,6 +22,5 @@
   .panel.panel-default
     .panel.panel-title
       %h4 Workouts
+  = link_to "Add Workout", new_program_workout_path(@program.id), class: "btn btn-default"
   = render "workouts/workout"
-  .btn-group.pull-right
-    = link_to "Add Workout", new_program_workout_path(@program), class: "btn btn-default"

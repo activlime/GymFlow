@@ -2,7 +2,7 @@
   - if @workout.errors.any?
     #errors
       %h2
-      = pluralize(@workouts.errors.count, "error")
+      = pluralize(@workout.errors.count, "error")
       prevented this Program from saving
       %u1
         - @workout.errors.full_messages.each do |msg|
